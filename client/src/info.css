@@ -1,0 +1,33 @@
+
+.info_div{
+    padding: 10px 200px;
+    font-family: "PT Sans", sans-serif;
+    font-style: normal;
+}
+
+.info_title{
+    font-weight: 700;
+    font-size: 24px;
+    margin-bottom: 8px;
+    margin-top: 15px;
+}
+
+.director_info{
+    display: flex;
+}
+
+.director_title{
+    font-weight: 900;
+    font-size: 20px;
+}
+
+.director_name{
+    margin-top: 2px;
+    margin-left: 8px;
+    font-size: 20px;
+}
+
+.info_detail{
+    font-size: 19px;
+    margin-bottom: 5px;
+}

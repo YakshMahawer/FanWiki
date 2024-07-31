@@ -1,0 +1,34 @@
+.wide_poster_div > img{
+    height: 250px;
+    margin-left: 400px;
+}
+
+.black_div{
+    height: 66.1px;
+    width: 1530px;
+    background-color: black;
+    position: absolute;
+    /* top: 10px; */
+    z-index: -1;
+}
+
+.button_class{
+    margin-right: 35px;
+    letter-spacing: 0.75px;
+    font-size: 24px;
+    background: none;
+    border: none;
+    font-family: "Roboto", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.nav_buttons_div{
+    text-align: center;
+}
+
+.active_class{
+    border-bottom: 4px solid rgb(194, 4, 4);
+}

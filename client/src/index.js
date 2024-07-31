@@ -4,6 +4,7 @@ import {BrowserRouter, Router, Routes, Route} from 'react-router-dom';
 import App from './App';
 import Login from './Login';
 import Signup from './Signup';
+import './index.css'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
