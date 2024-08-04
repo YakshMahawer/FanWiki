@@ -1,0 +1,141 @@
+.t_circle{
+    width: 190px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.theory_cart > ul > li{
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.theory_mes {
+    overflow: hidden;
+    max-height: 58px; /* Limit to 3 lines (adjust this value if necessary) */
+    transition: max-height 0.3s ease;
+  }
+  
+  .theory_mes.expanded {
+    max-height: none; /* Allow full height when expanded */
+  }
+
+.readmore{
+    width: fit-content;
+    font-size: 14px;
+    background: none;
+    border: none;
+    color: rgb(81, 80, 80);
+    padding: 0px;
+    cursor: pointer;
+    margin-top: 4px;
+    margin-bottom: 8px;
+}
+
+.theory_buttons > button{
+    background: none;
+    border: none;
+}
+
+.ld_count{
+    font-size: 16px;
+    padding-left: 5px;
+}
+
+.post_comment > input{
+    margin-right: 20px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    border: none;
+    border-bottom: 2px solid black;
+    font-size: 16px;
+    width: 500px;
+}
+.post_comment > input:focus{
+    margin-right: 20px;
+    outline: none;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    border: none;
+    border-bottom: 2px solid black;
+    font-size: 16px;
+}
+
+.reply_to_comment > input{
+    font-size: 12px;
+    width: 300px;
+    border: none;
+    margin-right: 20px;
+    border-bottom: 2px solid #969090;
+}
+.reply_to_comment > input:focus{
+    font-size: 12px;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid #969090;
+}
+.like_dislike_icon{
+    font-size: 20px;
+    cursor: pointer;
+    color: #4d4d4d;
+}
+
+.review_title{
+    margin-top: 15px;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.ok{
+    color: red !important;
+}
+
+.post_comment > button, .reply_to_comment > button{
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    margin: 2px -18px;
+}
+
+.c_who{
+    font-weight: 600;
+}
+
+.c_when{
+    margin-left: 10px;
+    color: rgb(53, 53, 53);
+}
+
+.who_commented{
+    font-size: 14px;
+    margin-bottom: 3px;
+}
+
+.reply_buttons{
+    display: flex;
+}
+
+.reply_buttons > button{
+    background: none;
+    border: none;
+    font-weight: 700;
+    color: #4a4242;
+    padding: 0px;
+    margin-right: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.replies{
+    margin-top: 10px;
+}
+
+.shift{
+    margin-left: 20px;
+}

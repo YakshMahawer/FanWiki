@@ -1,15 +1,23 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import './Write.css'; // Ensure you have a CSS file for styling
 
-function Review() {
+function Write() {
   const [selectedOptionValue, setSelectedOptionValue] = useState('Review');
-  const [rating, setRating] = useState('');
+  const [rating, setRating] = useState(0);
   const [message, setMessage] = useState('');
+  const [title, setTitle] = useState('');
   const navigate = useNavigate();
 
-  const handleChange = (event) => {
-    setSelectedOptionValue(event.target.value);
+  const handleChange = (option) => {
+    setSelectedOptionValue(option);
+  };
+
+  const handleStarClick = (star) => {
+    setRating(star);
   };
 
   const handlePost = async () => {
@@ -22,54 +30,63 @@ function Review() {
       if (selectedOptionValue === 'Review') {
         data.rating = rating;
       }
+      if (selectedOptionValue === 'Theory') {
+        data.title = title;
+      }
       await axios.post('http://localhost:5000/review', data, {
         headers: { Authorization: `Bearer ${token}` }
       });
-      alert('Post added successfully');
+      toast.success(selectedOptionValue + ' added successfully');
+      setMessage('');
+      setTitle('');
       navigate('/home/write');
     } catch (error) {
       console.error(error.response.data.message);
+      toast.error(error)
     }
   };
 
   return (
     <div className="write_div">
       <div className="writing_window">
-        <div className="selection">
-          Post As :
+        <div 
+          className={`option ${selectedOptionValue === 'Review' ? 'selected' : ''}`}
+          onClick={() => handleChange('Review')}
+        >
+          Write a Review
         </div>
-        <label>
-          <input
-            type="radio"
-            value="Review"
-            checked={selectedOptionValue === 'Review'}
-            onChange={handleChange}
-          />
-          Review
-        </label>
-        <label>
-          <input
-            type="radio"
-            value="Theory"
-            checked={selectedOptionValue === 'Theory'}
-            onChange={handleChange}
-          />
-          Theory
-        </label>
-      </div>
-      <div>
-        Selected Value: {selectedOptionValue}
+        <div 
+          className={`option ${selectedOptionValue === 'Theory' ? 'selected' : ''}`}
+          onClick={() => handleChange('Theory')}
+        >
+          write a Theory
+        </div>
       </div>
       <div className="writing_area">
         {selectedOptionValue === 'Review' && (
-          <div>Rating: <input type="text" value={rating} onChange={(e) => setRating(e.target.value)} /></div>
+          <div className="rating">
+            <span className="give_rating">Give the Rating: </span>
+            {[1, 2, 3, 4, 5].map((star) => (
+              <span
+                key={star}
+                className={`star ${rating >= star ? 'filled' : ''}`}
+                onClick={() => handleStarClick(star)}
+              >
+                <i class="fa-solid fa-star"></i>
+              </span>
+            ))}
+          </div>
         )}
-        <div>Message: <input type="text" value={message} onChange={(e) => setMessage(e.target.value)} /></div>
+        {selectedOptionValue === 'Theory' && (
+          <div><span className="give_rating">Theory Title: </span><textarea className='message_input' type="text" value={title} rows='1' onChange={(e) => setTitle(e.target.value)} /></div>
+        )}
+        <div><span className="give_rating">Message: </span><textarea className='message_input' type="text" value={message} rows='5' onChange={(e) => setMessage(e.target.value)} /></div>
         <br />
-        <button onClick={handlePost}>Post</button>
+        <button className='post_write' onClick={handlePost}>Post</button>
       </div>
+      <ToastContainer />
     </div>
   );
 }
 
-export default Review;
+export default Write;

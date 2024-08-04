@@ -1,0 +1,91 @@
+.home_div{
+    display: flex;
+    width: 100%;
+}
+
+.img_dp, .home_info_div{
+    flex: 2;
+}
+
+.movie_logos{
+    display: flex;
+}
+
+.img_dp > img{
+    height: 600px;
+    margin-top: -42px;
+}
+
+.home_info_div{
+    
+}
+
+.back_style{
+    background-image: url('https://static.vecteezy.com/system/resources/previews/016/704/971/non_2x/red-gradient-background-with-blank-abstract-shiny-smooth-metallic-texture-vector.jpg');
+    background-blend-mode: screen;
+    clip-path: polygon(10% 0, 100% 0, 100% 100%, 0% 100%);
+    position: absolute;
+    z-index: -1;
+    margin-left: -122px;
+    height: 695px;
+    width: 1009px;
+}
+
+.max_effort{
+    margin-top: 18px;
+    text-align: center;
+    font-family: 'Anton SC';
+    font-size: 32px;
+    letter-spacing: 1.5px;
+}
+
+.deadpool_mayhem{
+    background-image: url('https://wallpaper.forfun.com/fetch/42/42fd26d14e1b3bf19baf8ae31be1ffe2.jpeg');
+    clip-path: polygon(10% 0, 100% 0, 100% 100%, 0% 100%);
+    position: absolute;
+    height: 694px;
+    width: 1009px;
+    margin-left: -120px;
+    background-repeat: round;
+    opacity: 0.4;
+    z-index: -1;
+}
+
+.movie_logos > img{
+    margin-top: 22px;
+    margin-right: 25px;
+    margin-left: 35px;
+    height: 45px;
+}
+
+.fan_wiki_text{
+    font-family: "Protest Strike", sans-serif;
+    font-size: 125px;
+    color: aliceblue;
+}
+
+.fan_wiki_info{
+    overflow-y: hidden;
+    max-width: 633px;
+    line-height: 45px;
+    font-size: 40px;
+    color: aliceblue;
+    font-family: 'Anton SC';
+}
+
+.explore_button{
+    margin-top: 30px;
+    cursor: pointer;
+    color: aliceblue;
+    font-family: 'Anton SC';
+    font-size: 35px;
+    /* color: #5a3c3c; */
+    /* background-color: aliceblue; */
+    border: 2px solid;
+    width: fit-content;
+    padding: 2px 30px;
+}
+
+.fanwiki_things{
+    padding: 112px 0px;
+}

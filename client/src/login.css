@@ -1,0 +1,161 @@
+.loginDiv {
+    display: flex;
+    width: 100%;
+    height: 100vh; /* Adjust based on your needs */
+  }
+  
+.login_content, .go_to_signup_div {
+flex: 1; /* Each div will take 50% of the container */ /* Optional: Add some padding */
+}
+
+.login_content{
+    padding: 0px 0px;
+}
+
+.login_content > form{
+    padding: 12px 110px;
+}
+
+.login_content > form > input:focus{
+    outline: 0;
+}
+.go_to_signup_div > img{
+    margin-left: 346px;
+    height: 691px;
+}
+
+.go_to_signup_div{
+    background-image: url('./dp_back.jpg');
+    background-repeat: round;
+}
+
+.locket_img_wol{
+    margin-left: 10px !important;
+}
+
+.wol_signup{
+    background-color: #e89701 !important;
+}
+
+.text_dont_have{
+    letter-spacing: 1.1px;
+    color: white;
+    max-width: 411px;
+    text-transform: uppercase;
+    font-size: 60px;
+    margin: 40px 10px 1px 36px;
+    font-family: "Anton SC", sans-serif;
+}
+
+
+.login_message > button{
+    margin-left: 34px;
+    background: white;
+    font-size: 40px;
+    font-family: "Anton SC";
+    padding: 2px 40px;
+    cursor: pointer;
+    border: none;
+}
+
+
+.login_message > button:hover{
+    margin-left: 34px;
+    color: aliceblue;
+    background: rgb(147, 0, 0);
+    font-size: 40px;
+    font-family: "Anton SC";
+    padding: 2px 40px;
+    cursor: pointer;
+    border: none;
+}
+
+.wol_login_message > div{
+    letter-spacing: 1.1px;
+    color: rgb(0, 0, 0);
+    max-width: 336px;
+    text-transform: uppercase;
+    font-size: 60px;
+    margin: 296px -54px -18px 434px;
+    font-family: "Anton SC", sans-serif;
+    margin-bottom: 10px;
+}
+
+.wol_login_message > button{
+    margin-top: 10px !important;
+    margin-left: 434px;
+}
+
+.locket_img_dp{
+    margin-left: 652px;
+    margin-top: -14px;
+}
+
+.locket_img_dp > img{
+    width: 110px;
+}
+
+.wol_login_message > button:hover{
+    background: #e89701;
+    margin-top: 10px !important;
+    margin-left: 434px;
+}
+
+.wol_signup_div{
+    background-image: url('./yellow_bg.jpg');
+}
+
+.wol_signup_div > img{
+    margin-left: -64px;
+}
+
+.login_content > form > input {
+    position: relative;
+    margin: 9px auto;
+    border: none;
+    font-size: 1.2em;
+    padding: 1em 1.3em;
+    background: #eae7e7;
+    border-radius: 6px;
+    width: 90%;
+}
+
+.login_content > form >button {
+    letter-spacing: 3px;
+    margin: 47px 0px;
+    cursor: pointer;
+    font-size: 30px;
+    padding: 8px;
+    font-family: 'Anton SC';
+    width: 60%;
+    position: relative;
+    color: white;
+    background: #d20210;
+    border: none;
+    border-radius: 30px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.login_text_top{
+    font-family: "Anton SC";
+    font-weight: 600;
+    font-style: normal;
+    font-size: 36px;
+    text-align: center;
+}
+
+.login_content{
+    background-repeat: round;
+    background-size: contain;
+    background-image: url('https://www.shutterstock.com/image-vector/light-halftone-background-web-layout-600nw-1043458813.jpg');
+}
+
+.login_message{
+    position: absolute;
+    top: 0px;
+}
+
+.go{font-family: "Carter One", system-ui;}
+.gp{font-family: "Anton SC", sans-serif;}

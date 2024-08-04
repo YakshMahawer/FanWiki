@@ -1,0 +1,83 @@
+.option {
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+  }
+  
+  .option.selected {
+    background-color: green;
+    color: white;
+  }
+  
+  .rating {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .star {
+    font-size: 24px;
+    cursor: pointer;
+    color: #ccc;
+    transition: color 0.3s;
+    margin-right: 3px;
+  }
+  
+  .star.filled {
+    color: gold;
+  }
+
+.writing_window{
+    display: flex;
+}
+
+.writing_area{
+    padding: 20px 20px;
+}
+
+.writing_window > div{
+    padding: 10px 80px;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 0.8px;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.write_div{
+    padding: 10px 380px;
+    font-family: 'Roboto', 'Sans Serif';
+}
+
+.give_rating{
+    display: inline-block;
+    width: 180px;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.post_write{
+    font-family: 'Roboto', 'Sans Serif';
+    padding: 10px 50px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    font-size: 21px;
+    background-color: rgb(0, 0, 0);
+    border: none;
+    color: rgb(255, 255, 255);
+    border-radius: 24px;
+    cursor: pointer;
+}
+
+.message_input{
+    padding: 5px 10px;
+    font-size: 18px;
+    border: 2px solid;
+    width: 440px;
+}
+  

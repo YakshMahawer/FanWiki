@@ -65,14 +65,13 @@ def get_fantheories():
         theories[i]['user_id'] = str(theories[i]['user_id'])  # Convert ObjectId to string
         theories[i]['timestamp'] = theories[i].get('timestamp')
         
-        # Fetch comments and convert each comment's ObjectId to string
-        comments_cursor = comments_collection.find({'theory_id': theories[i]['_id']})
+        # Fetch root comments (parent_id is None) and convert each comment's ObjectId to string
+        comments_cursor = comments_collection.find({'theory_id': theories[i]['_id'], 'parent_id': None})
         comments = list(comments_cursor)
         for comment in comments:
             comment['_id'] = str(comment['_id'])
             comment['user_id'] = str(comment['user_id'])
             commenter_name = users_collection.find_one({'_id': ObjectId(comment['user_id'])})
-            print(commenter_name)
             comment['name'] = commenter_name['name']
         theories[i]['comments'] = comments
         user_action = None
@@ -130,6 +129,15 @@ def like_theory(theory_id):
             updated_theory['dislikes'] = [str(dislike) for dislike in updated_theory['dislikes']]
         user_data = users_collection.find_one({'_id': ObjectId(updated_theory['user_id'])})
         updated_theory['user_name'] = user_data['name']
+        # Fetch root comments (parent_id is None) and convert each comment's ObjectId to string
+        comments_cursor = comments_collection.find({'theory_id': updated_theory['_id'], 'parent_id': None})
+        comments = list(comments_cursor)
+        for comment in comments:
+            comment['_id'] = str(comment['_id'])
+            comment['user_id'] = str(comment['user_id'])
+            commenter_name = users_collection.find_one({'_id': ObjectId(comment['user_id'])})
+            comment['name'] = commenter_name['name']
+        updated_theory['comments'] = comments
         return jsonify(updated_theory), 200
     return jsonify({'message': 'Theory not found'}), 404
 
@@ -168,6 +176,15 @@ def dislike_theory(theory_id):
             updated_theory['dislikes'] = [str(dislike) for dislike in updated_theory['dislikes']]
         user_data = users_collection.find_one({'_id': ObjectId(updated_theory['user_id'])})
         updated_theory['user_name'] = user_data['name']
+        # Fetch root comments (parent_id is None) and convert each comment's ObjectId to string
+        comments_cursor = comments_collection.find({'theory_id': updated_theory['_id'], 'parent_id': None})
+        comments = list(comments_cursor)
+        for comment in comments:
+            comment['_id'] = str(comment['_id'])
+            comment['user_id'] = str(comment['user_id'])
+            commenter_name = users_collection.find_one({'_id': ObjectId(comment['user_id'])})
+            comment['name'] = commenter_name['name']
+        updated_theory['comments'] = comments
         return jsonify(updated_theory), 200
     return jsonify({'message': 'Theory not found'}), 404
 
@@ -220,7 +237,7 @@ def view_replies():
         reply['user_id'] = str(reply['user_id'])
         commenter_name = users_collection.find_one({'_id': ObjectId(reply['user_id'])})
         reply['name'] = commenter_name['name']
-
+    print(replies)
     return jsonify(replies), 200
 
 @app.route('/postcomment', methods=['POST'])
