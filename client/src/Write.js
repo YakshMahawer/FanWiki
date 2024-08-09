@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './Write.css'; // Ensure you have a CSS file for styling
@@ -11,6 +11,7 @@ function Write() {
   const [message, setMessage] = useState('');
   const [title, setTitle] = useState('');
   const navigate = useNavigate();
+  const { movieId } = useParams(); // Extract movieId from the URL
 
   const handleChange = (option) => {
     setSelectedOptionValue(option);
@@ -26,6 +27,7 @@ function Write() {
       const data = {
         type: selectedOptionValue,
         message: message,
+        movie_id: movieId, // Include the movie_id in the data being sent
       };
       if (selectedOptionValue === 'Review') {
         data.rating = rating;
@@ -39,10 +41,10 @@ function Write() {
       toast.success(selectedOptionValue + ' added successfully');
       setMessage('');
       setTitle('');
-      navigate('/home/write');
+      navigate(`/home/${movieId}/reviews`);
     } catch (error) {
       console.error(error.response.data.message);
-      toast.error(error)
+      toast.error(error.response.data.message || 'An error occurred');
     }
   };
 
@@ -59,7 +61,7 @@ function Write() {
           className={`option ${selectedOptionValue === 'Theory' ? 'selected' : ''}`}
           onClick={() => handleChange('Theory')}
         >
-          write a Theory
+          Write a Theory
         </div>
       </div>
       <div className="writing_area">
@@ -72,15 +74,33 @@ function Write() {
                 className={`star ${rating >= star ? 'filled' : ''}`}
                 onClick={() => handleStarClick(star)}
               >
-                <i class="fa-solid fa-star"></i>
+                <i className="fa-solid fa-star"></i>
               </span>
             ))}
           </div>
         )}
         {selectedOptionValue === 'Theory' && (
-          <div><span className="give_rating">Theory Title: </span><textarea className='message_input' type="text" value={title} rows='1' onChange={(e) => setTitle(e.target.value)} /></div>
+          <div>
+            <span className="give_rating">Theory Title: </span>
+            <textarea
+              className='message_input'
+              type="text"
+              value={title}
+              rows='1'
+              onChange={(e) => setTitle(e.target.value)}
+            />
+          </div>
         )}
-        <div><span className="give_rating">Message: </span><textarea className='message_input' type="text" value={message} rows='5' onChange={(e) => setMessage(e.target.value)} /></div>
+        <div>
+          <span className="give_rating">Message: </span>
+          <textarea
+            className='message_input'
+            type="text"
+            value={message}
+            rows='5'
+            onChange={(e) => setMessage(e.target.value)}
+          />
+        </div>
         <br />
         <button className='post_write' onClick={handlePost}>Post</button>
       </div>

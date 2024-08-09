@@ -18,7 +18,7 @@ function Login() {
       const response = await axios.post('http://localhost:5000/login', { email, password });
       localStorage.setItem('token', response.data.token);
       toast.success('Login successful!');
-      navigate('/home/info');
+      navigate('/movies');
     } catch (error) {
       toast.error(error.response?.data?.message || 'An error occurred');
     }

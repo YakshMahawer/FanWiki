@@ -5,8 +5,8 @@
   }
   
   .circle {
-    margin-top: -75px;
-    width: 57px;
+    margin-top: -50px;
+    width: 52px;
     height: 38px;
     border-radius: 50%;
     display: flex;
@@ -15,6 +15,31 @@
     color: white;
     font-size: 20px;
     margin-right: 10px;
+  }
+
+  .review_selectors{
+    display: flex;
+    justify-content: center;
+  }
+
+  .review_selectors > div{
+    border-radius: 10px;
+    font-family: 'Roboto';
+    font-size: 18px;
+    color: black;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 5px 20px;
+    margin: 0px 20px;
+    cursor: pointer;
+  }
+
+  .bg_on{
+    background-color: #66d42d;
+  }
+
+  .bg_off{
+    background-color: bisque;
   }
   
   .review-content {

@@ -32,6 +32,7 @@ def signup():
 
     return jsonify({'message': 'User created successfully'}), 201
 
+
 @app.route('/login', methods=['POST'])
 def login():
     data = request.get_json()
@@ -46,18 +47,18 @@ def login():
 
     return jsonify({'message': 'Invalid credentials'}), 401
 
-@app.route('/reviews', methods=['GET'])
-def get_reviews():
-    reviews = list(reviews_collection.find({}, {'_id': 0}))  # Exclude the '_id' field from the response
+@app.route('/reviews/<movie_id>', methods=['GET'])
+def get_reviews(movie_id):
+    reviews = list(reviews_collection.find({'movie_id': movie_id}, {'_id': 0}))  # Filter reviews by movie_id
     for i in range(len(reviews)):
         user_data = users_collection.find_one({'_id': ObjectId(reviews[i]['user_id'])})
         reviews[i]['user_name'] = user_data['name']
         reviews[i]['timestamp'] = reviews[i].get('timestamp')
     return jsonify(reviews), 200
 
-@app.route('/fantheories', methods=['GET'])
-def get_fantheories():
-    theories = list(theories_collection.find({}))
+@app.route('/fantheories/<movie_id>', methods=['GET'])
+def get_fantheories(movie_id):
+    theories = list(theories_collection.find({'movie_id': movie_id}))
     for i in range(len(theories)):
         theories[i]['_id'] = str(theories[i]['_id'])  # Convert ObjectId to string
         user_data = users_collection.find_one({'_id': ObjectId(theories[i]['user_id'])})

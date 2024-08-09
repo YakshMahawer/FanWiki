@@ -1,0 +1,66 @@
+.project_name{
+    padding: 14px 0px;
+    background-color: black;
+    color: aliceblue;
+    text-align: center;
+    font-family: "Protest Strike", sans-serif;
+    font-size: 50px;
+}
+
+.search_input{
+    padding: 10px 13px;
+    margin-left: 300px;
+    border: 2px solid;
+    width: 750px;
+    font-family: 'Roboto';
+    font-size: 24px;
+    margin-top: 24px;
+    border-radius: 0px;
+}
+
+.search_button{
+    width: 130px;
+    margin-top: 24px;
+    height: 53px;
+    /* margin-top: 22px; */
+    font-size: 28px;
+    font-family: 'Anton SC';
+    letter-spacing: 1px;
+    background: black;
+    border: none;
+    color: white;
+    padding: 5px 17px;
+}
+
+.all_movies{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    row-gap: 20px;
+    padding: 20px 140px;
+}
+.each_movie{
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.each_movie > img{
+    border-radius: 5px;
+}
+.each_movie_title{
+    margin: 3px 0px;
+    text-align: center;
+    font-family: 'Roboto';
+    font-size: 18px;
+    font-weight: 500;
+    width: 200px;
+}
+
+.each_movie_year{
+    font-family: 'Roboto';
+    width: 200px;
+    text-align: center;
+}
+
+.form_search{
+    display: flex;
+}

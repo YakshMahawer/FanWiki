@@ -25,6 +25,11 @@
     text-transform: uppercase;
 }
 
+.invisible_poster{
+    height: 250px;
+    width: 1000x;
+}
+
 .nav_buttons_div{
     text-align: center;
 }

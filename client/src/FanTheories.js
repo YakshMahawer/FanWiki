@@ -3,6 +3,7 @@ import axios from 'axios';
 import './theory.css';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useParams } from 'react-router-dom';
 
 const daysAgo = (timestamp) => {
   const postDate = new Date(timestamp);
@@ -22,16 +23,17 @@ const FanTheories = () => {
   const [visibleReplies, setVisibleReplies] = useState({});
   const [visibleComments, setVisibleComments] = useState({}); // New state for comment visibility
   const userToken = localStorage.getItem('token');
+  const { movieId } = useParams(); // Get the movie_id from the URL
 
   useEffect(() => {
-    fetch('http://localhost:5000/fantheories')
+    fetch(`http://localhost:5000/fantheories/${movieId}`)
       .then((response) => response.json())
       .then((data) => {
         setTheories(data);
         checkReadMore(data);
       })
       .catch((error) => console.error('Error fetching theories:', error));
-  }, []);
+  }, [movieId]);
 
   const checkReadMore = (theories) => {
     const tempShowReadMore = {};

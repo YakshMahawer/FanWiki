@@ -5,6 +5,16 @@
     font-style: normal;
 }
 
+.title_tribute{
+    font-family: "Protest Strike", sans-serif;
+    font-size: 110px;
+    text-transform: uppercase;
+    position: absolute;
+    top: 100px;
+    width: 1536px;
+    text-align: center;
+}
+
 .info_title{
     font-weight: 700;
     font-size: 24px;
